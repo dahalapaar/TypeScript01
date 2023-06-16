@@ -44,3 +44,62 @@ let userInfo: {
   phone?: string // Here phone is optional.
   isHappy: boolean
 }
+
+//FUNCTIONS
+let sayHi = () => {
+  console.log("Hi Apaar")
+}
+
+let funcReturnsString = (): string => {
+  console.log("hi")
+  return "Apaar"
+}
+
+let multiple = (num: number): number => {
+  return num + 2
+}
+
+let sum = (num: number): void => {
+  // Performs something but does not return anything
+}
+
+let add = (num1: number, num2: number, num3?: number) => {
+  return num1 + num2
+}
+
+add(5, 5)
+
+// Works but not recommended
+let func = (user: { username: string; age: number; phone?: string }) => {
+  console.log(user.username)
+}
+
+// TYPE ALIASES
+type UserType = {
+  username: string
+  age: number
+  phone?: string
+}
+
+let betterFunc = (user: UserType) => {
+  console.log(user.username)
+}
+
+type myFunc = (a: number, b: string) => void
+
+let Write: myFunc = (num, str) => {
+  console.log(num + "string")
+}
+
+type UserTypes2 = {
+  username: string
+  age: number
+  phone?: string
+  theme: "dark" | "light"
+}
+
+const userTheme: UserTypes2 = {
+  username: "Apaar",
+  age: 23,
+  theme: "dark",
+}
