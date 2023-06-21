@@ -127,3 +127,50 @@ const employee: IEmployee = {
   age: 23,
   department: "IT",
 }
+
+//GENERICS
+
+interface IAuthor {
+  id: number
+  username: string
+}
+
+interface ICategory {
+  id: number
+  title: string
+}
+
+interface IPost {
+  id: number
+  title: string
+  des: string
+  extra: IAuthor | ICategory[]
+}
+
+interface IPostBetter<T> {
+  id: number
+  title: string
+  des: string
+  extra: T[]
+}
+
+const testMe: IPostBetter<string> = {
+  id: 1,
+  title: "Title",
+  des: "Desc",
+  extra: ["A", "B", "C"],
+}
+
+interface IPostEvenBetter<T extends object> {
+  id: number
+  title: string
+  des: string
+  extra: T[]
+}
+
+const testMe2: IPostBetter<IAuthor> = {
+  id: 1,
+  title: "Title",
+  des: "Desc",
+  extra: [{ id: 1, username: "Apaar" }],
+}
